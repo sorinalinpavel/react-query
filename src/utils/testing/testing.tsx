@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
+
 import { Router } from 'react-router-dom';
 import { prettyFormat } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';

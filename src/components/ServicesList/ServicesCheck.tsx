@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
+import { useEffect, useState } from 'react';
+
 import { useGetServices } from '../../api/services';
 
 type Props = {
@@ -14,6 +15,8 @@ const ServicesCheck = ({ checked, onChange }: Props) => {
 
   useEffect(() => {
     onChange(value);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const handleChange = (id: number, isChecked: boolean) => {

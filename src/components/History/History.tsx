@@ -1,7 +1,7 @@
-import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
-import Skeleton from '@mui/material/Skeleton';
 import { useGetAppointment, usePatchAppointment } from '../../api/appointments';
+
+import Skeleton from '@mui/material/Skeleton';
 
 type Props = {
   id: number;

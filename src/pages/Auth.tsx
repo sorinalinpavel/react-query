@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import { Alert, Box, Button, TextField, Typography } from '@mui/material';
-import { getTokenByPassword } from '../api/auth';
+import { useEffect, useState } from 'react';
+
 import Cookies from 'js-cookie';
-import { useHistory } from 'react-router-dom';
+import { getTokenByPassword } from '../api/auth';
 import { pageRoutes } from '../routes';
 import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 import { useQueryClient } from 'react-query';
 
 const Auth = () => {
@@ -19,6 +20,8 @@ const Auth = () => {
     if (Cookies.get('token')) {
       history.replace(pageRoutes.main);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmit = async (event: React.SyntheticEvent) => {

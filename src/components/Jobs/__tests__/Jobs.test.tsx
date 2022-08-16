@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
-import React from 'react';
-import { createMemoryHistory } from 'history';
+
 import {
   changeTextFieldByTestId,
   clickByTestId,
@@ -11,8 +10,10 @@ import {
   mockAxiosGetRequests,
   mockAxiosPostRequests,
 } from '../../../utils/testing/axiosMock';
-import { waitFor } from '@testing-library/react';
+
 import Jobs from '../Jobs';
+import { createMemoryHistory } from 'history';
+import { waitFor } from '@testing-library/react';
 
 describe('Appointment.tsx', () => {
   beforeEach(() => {

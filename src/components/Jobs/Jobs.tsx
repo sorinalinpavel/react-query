@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
 import { Box, Fab, TextField, Typography } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
-import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { useAddJob, useDeleteJob, useGetJobs } from '../../api/jobs';
+
+import AddIcon from '@mui/icons-material/Add';
+import CircularProgress from '@mui/material/CircularProgress';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Skeleton from '@mui/material/Skeleton';
 import { pushNotification } from '../../utils/notifications';
+import { useState } from 'react';
 
 interface Props {
   appointmentId: number;

@@ -1,6 +1,3 @@
-import React from 'react';
-import upperFirst from 'lodash/upperFirst';
-import { format } from 'date-fns';
 import {
   Avatar,
   IconButton,
@@ -9,10 +6,13 @@ import {
   ListItemSecondaryAction,
   ListItemText,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+
 import InsertInvitationIcon from '@mui/icons-material/InsertInvitation';
-import { pathToUrl } from '../../utils/router';
+import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 import { pageRoutes } from '../../routes';
+import { pathToUrl } from '../../utils/router';
+import upperFirst from 'lodash/upperFirst';
 
 type Props = {
   id: number;

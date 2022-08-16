@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom';
-import React from 'react';
-import { createMemoryHistory } from 'history';
-import { renderComponent } from '../../utils/testing/testing';
-import { mockAxiosGetRequests } from '../../utils/testing/axiosMock';
-import { waitFor } from '@testing-library/react';
+
 import Appointment from '../Appointment';
+import { createMemoryHistory } from 'history';
+import { mockAxiosGetRequests } from '../../utils/testing/axiosMock';
+import { renderComponent } from '../../utils/testing/testing';
+import { waitFor } from '@testing-library/react';
 
 jest.mock('react-router-dom', () => ({
   ...(jest.requireActual('react-router-dom') as object),

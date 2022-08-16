@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Alert,
   AlertTitle,
@@ -7,10 +6,12 @@ import {
   FormControl,
   FormLabel,
 } from '@mui/material';
-import Skeleton from '@mui/material/Skeleton';
+
 import { ErrorBoundary } from 'react-error-boundary';
 import { QueryErrorResetBoundary } from 'react-query';
 import ServicesCheck from './ServicesCheck';
+import Skeleton from '@mui/material/Skeleton';
+import { Suspense } from 'react';
 
 type Props = {
   checked: number[];
@@ -47,7 +48,7 @@ const ServicesList = ({ checked, onChange }: Props) => {
             )}
             onReset={reset}
           >
-            <React.Suspense
+            <Suspense
               fallback={
                 <Box width="100%">
                   <Box mb={1}>
@@ -63,7 +64,7 @@ const ServicesList = ({ checked, onChange }: Props) => {
               }
             >
               <ServicesCheck checked={checked} onChange={onChange} />
-            </React.Suspense>
+            </Suspense>
           </ErrorBoundary>
         )}
       </QueryErrorResetBoundary>

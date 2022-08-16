@@ -1,10 +1,10 @@
-import React from 'react';
 import {
   IconButton,
   ListItem,
   ListItemAvatar,
   ListItemSecondaryAction,
 } from '@mui/material';
+
 import Skeleton from '@mui/material/Skeleton';
 
 const UserItemSkeleton = () => {

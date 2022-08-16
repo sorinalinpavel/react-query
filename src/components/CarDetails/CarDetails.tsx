@@ -1,5 +1,5 @@
-import React from 'react';
 import { Box, CircularProgress, Typography } from '@mui/material';
+
 import { useGetCarDetail } from '../../api/appointments';
 
 type Props = {

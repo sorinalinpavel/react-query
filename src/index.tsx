@@ -1,25 +1,27 @@
-import React from 'react';
+import './index.css';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+import App from './App';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './index.css';
-import App from './App';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import 'react-toastify/dist/ReactToastify.css';
-import { initializeMockAdapter } from './utils/mockApi';
+import { StrictMode } from 'react';
 import { ToastContainer } from 'react-toastify';
+import { initializeMockAdapter } from './utils/mockApi';
 
 initializeMockAdapter();
 
 const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Router>
       <QueryClientProvider client={queryClient}>
         <App />
         <ToastContainer />
       </QueryClientProvider>
     </Router>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 );

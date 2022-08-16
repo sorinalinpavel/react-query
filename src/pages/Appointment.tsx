@@ -1,17 +1,18 @@
-import React, { useRef, useState } from 'react';
 import { Alert, Box, Button, Card, Typography } from '@mui/material';
 import {
   useGetAppointment,
   useGetInsurance,
   usePrefetchCarDetails,
 } from '../api/appointments';
-import { useParams } from 'react-router-dom';
-import DoneAllIcon from '@mui/icons-material/DoneAll';
+import { useRef, useState } from 'react';
+
 import CarDetails from '../components/CarDetails/CarDetails';
-import Jobs from '../components/Jobs/Jobs';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import History from '../components/History/History';
+import Jobs from '../components/Jobs/Jobs';
 import ServicesList from '../components/ServicesList/ServicesList';
 import Skeleton from '@mui/material/Skeleton';
+import { useParams } from 'react-router-dom';
 
 const Appointment = () => {
   const prefetched = useRef<boolean>();

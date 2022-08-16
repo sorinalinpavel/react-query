@@ -1,5 +1,6 @@
-import React from 'react';
 import { Box, Button, Card, List } from '@mui/material';
+
+import { Fragment } from 'react';
 import UserItem from '../UserItem/UserItem';
 import UserItemSkeleton from '../UserItem/UserItemSkeleton';
 import { useGetAppointmentsList } from '../../api/appointments';
@@ -31,7 +32,7 @@ const UsersList = () => {
         ) : (
           <List>
             {list!.pages.map((page) => (
-              <React.Fragment key={page.nextId || 0}>
+              <Fragment key={page.nextId || 0}>
                 {page.data.map((item) => (
                   <UserItem
                     key={item.id}
@@ -40,7 +41,7 @@ const UsersList = () => {
                     date={item.appointment_date}
                   />
                 ))}
-              </React.Fragment>
+              </Fragment>
             ))}
           </List>
         )}

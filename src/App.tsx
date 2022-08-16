@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
-import Auth from './pages/Auth';
-import { pageRoutes } from './routes';
-import { useGetProfile } from './api/auth';
+
 import { AppBar, Box, Toolbar } from '@mui/material';
+import { Route, Switch, useHistory } from 'react-router-dom';
+
 import Appointment from './pages/Appointment';
 import Appointments from './pages/Appointments';
+import Auth from './pages/Auth';
 import UserProfile from './components/UserProfile/UserProfile';
+import { pageRoutes } from './routes';
+import { useEffect } from 'react';
+import { useGetProfile } from './api/auth';
 
 function App() {
   const history = useHistory();
@@ -17,6 +19,8 @@ function App() {
     if (error) {
       history.replace(pageRoutes.auth);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
   return (
@@ -28,20 +32,17 @@ function App() {
           </Box>
         </Toolbar>
       </AppBar>
-
-      <Box width={500} m="auto" mt={2}>
-        <Switch>
-          <Route path={pageRoutes.main} exact>
-            <Appointments />
-          </Route>
-          <Route path={pageRoutes.auth} exact>
-            <Auth />
-          </Route>
-          <Route path={pageRoutes.appointment} exact>
-            <Appointment />
-          </Route>
-        </Switch>
-      </Box>
+      <Switch>
+        <Route path={pageRoutes.main} exact>
+          <Appointments />
+        </Route>
+        <Route path={pageRoutes.auth} exact>
+          <Auth />
+        </Route>
+        <Route path={pageRoutes.appointment} exact>
+          <Appointment />
+        </Route>
+      </Switch>
     </>
   );
 }

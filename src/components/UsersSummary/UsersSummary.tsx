@@ -1,7 +1,7 @@
-import React from 'react';
 import { Box, Card, Typography } from '@mui/material';
-import { useGetAppointmentsList } from '../../api/appointments';
+
 import Skeleton from '@mui/material/Skeleton';
+import { useGetAppointmentsList } from '../../api/appointments';
 
 const UsersSummary = () => {
   const { data: list, isLoading } = useGetAppointmentsList();

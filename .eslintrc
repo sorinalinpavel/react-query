@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "eslint-config-react-app", "prettier", "plugin:jest/recommended"],
+  "extends": ["airbnb", "eslint-config-react-app", "prettier", "plugin:jest/recommended", "plugin:react/jsx-runtime"],
   "overrides": [
     {
       "files": ["**/*.ts?(x)"],
