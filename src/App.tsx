@@ -1,7 +1,7 @@
 import './App.css';
 
 import { AppBar, Box, Toolbar } from '@mui/material';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import Appointment from './pages/Appointment';
 import Appointments from './pages/Appointments';
@@ -12,12 +12,12 @@ import { useEffect } from 'react';
 import { useGetProfile } from './api/auth';
 
 function App() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { error } = useGetProfile();
 
   useEffect(() => {
     if (error) {
-      history.replace(pageRoutes.auth);
+      navigate(pageRoutes.auth);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,17 +32,12 @@ function App() {
           </Box>
         </Toolbar>
       </AppBar>
-      <Switch>
-        <Route path={pageRoutes.main} exact>
-          <Appointments />
-        </Route>
-        <Route path={pageRoutes.auth} exact>
-          <Auth />
-        </Route>
-        <Route path={pageRoutes.appointment} exact>
-          <Appointment />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path={pageRoutes.main} element={<Appointments />} />
+
+        <Route path={pageRoutes.auth} element={<Auth />} />
+        <Route path={pageRoutes.appointment} element={<Appointment />} />
+      </Routes>
     </>
   );
 }

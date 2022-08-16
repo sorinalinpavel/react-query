@@ -5,11 +5,11 @@ import Cookies from 'js-cookie';
 import { getTokenByPassword } from '../api/auth';
 import { pageRoutes } from '../routes';
 import { toast } from 'react-toastify';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from 'react-query';
 
 const Auth = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
 
   const [btnLoading, setBtnLoading] = useState(false);
@@ -18,7 +18,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (Cookies.get('token')) {
-      history.replace(pageRoutes.main);
+      navigate(pageRoutes.main);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,7 +31,7 @@ const Auth = () => {
       const resp = await getTokenByPassword(email, password);
       if (resp.data.token) {
         Cookies.set('token', resp.data.token);
-        history.replace(pageRoutes.main);
+        navigate(pageRoutes.main);
         queryClient.invalidateQueries();
       } else {
         toast.error('Invalid details', {

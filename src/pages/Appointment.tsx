@@ -16,7 +16,7 @@ import { useParams } from 'react-router-dom';
 
 const Appointment = () => {
   const prefetched = useRef<boolean>();
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string | any }>();
   const { data, isLoading } = useGetAppointment(+id);
   const { data: insurance } = useGetInsurance(data?.hasInsurance ? +id : null);
   const [showAdditional, setShowAdditional] = useState(false);
